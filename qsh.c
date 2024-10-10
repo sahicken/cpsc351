@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <strings.h>
 
 #define MAX_LINE_LENGTH 1024
 #define MAX_TOKENS 100
@@ -124,10 +125,14 @@ int main() {
 			return 1; // Handle parse error
 		}
 
+		char* last = tokens[token_count-1];
+		int echo = strcasecmp(last, "echo");
+
+		if (echo) last = NULL;
 		// Print the tokens
 		for (int i = 0; i < token_count; i++) {
-			printf("Token %d: %s\n", i, tokens[i]);
-			
+			if (echo) printf("Token %d: %s\n", i, tokens[i]);
+			else printf("SPACE ");
 		}
 
 		execArgs(tokens);
