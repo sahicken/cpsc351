@@ -106,7 +106,11 @@ void free_tokens(char **tokens, int token_count) {
 
 int main() {
 	begin();
+	char* user = getenv("USER");
+	char* hostname = getenv("HOSTNAME");
+	char* pwd = getenv("PWD");
 	while (1) {
+		printf("%s@%s:%s$ ", user, hostname, pwd);
 		char *line = readline();
 		if (!line) {
 			return 1; // Handle read error
@@ -123,7 +127,10 @@ int main() {
 		// Print the tokens
 		for (int i = 0; i < token_count; i++) {
 			printf("Token %d: %s\n", i, tokens[i]);
+			
 		}
+
+		execArgs(tokens);
 
 		// Clean up
 		free_tokens(tokens, token_count);
