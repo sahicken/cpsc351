@@ -166,7 +166,7 @@ fn main() -> io::Result<()> {
         let line = lines.next().ok_or_else(|| {
             io::Error::new(io::ErrorKind::InvalidData, "Missing allocation for a process")
         })?.unwrap();
-        
+
         let process_alloc: Vec<i32> = line.split('|')
             .map(|s| {
                 s.split_whitespace()
