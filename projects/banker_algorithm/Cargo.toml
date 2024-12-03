@@ -1,0 +1,12 @@
+[package]
+name = "banker_algorithm"
+version = "0.1.0"
+edition = "2021"
+
+# Optional: Add a description and authors
+description = "A Rust implementation of the Banker's Algorithm for deadlock-free resource allocation."
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+
+[dependencies]
+rand = "0.8"  # Add the rand crate for random number generation
